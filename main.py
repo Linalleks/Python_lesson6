@@ -3,32 +3,19 @@ def is_very_long(password):
 
 
 def has_digit(password):
-    for char in password:
-        if char.isdigit():
-            return True
-    return False
+    return any(char.isdigit() for char in password)
 
 
 def has_upper_letters(password):
-    for char in password:
-        if char.isupper():
-            return True
-    return False
+    return any(char.isupper() for char in password)
 
 
 def has_lower_letters(password):
-    for char in password:
-        if char.islower():
-            return True
-    return False
+    return any(char.islower() for char in password)
 
 
 def has_symbols(password):
-    symbols = '!@#$%^&*()_+-="№;%:?}{[]\\|/`~'
-    for char in password:
-        if symbols.find(char) > -1:
-            return True
-    return False
+    return any(not char.isalnum() for char in password)
 
 
 def main():
